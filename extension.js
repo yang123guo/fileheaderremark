@@ -1,30 +1,23 @@
-// The module 'vscode' contains the VS Code extensibility API
-// Import the module and reference it with the alias vscode in your code below
+// 引入HeaderRemark类 es6方式
+import HeaderRemark from './src/HeaderRemark';
+// 引入vscode的API require方式
 const vscode = require('vscode');
 
-// this method is called when your extension is activated
-// your extension is activated the very first time the command is executed
+// 在插件被激活的时候，这个方法会被调用 
 function activate(context) {
 
-    // Use the console to output diagnostic information (console.log) and errors (console.error)
-    // This line of code will only be executed once when your extension is activated
-    console.log('Congratulations, your extension "fileheaderremark" is now active!');
-
-    // The command has been defined in the package.json file
-    // Now provide the implementation of the command with  registerCommand
-    // The commandId parameter must match the command field in package.json
-    let disposable = vscode.commands.registerCommand('extension.sayHello', function () {
-        // The code you place here will be executed every time your command is executed
-
-        // Display a message box to the user
-        vscode.window.showInformationMessage('Hello World!');
-    });
-
-    context.subscriptions.push(disposable);
+    // 执行 HeaderRemark 这个类
+    const headerRemark = new HeaderRemark(vscode);
+    // 需要释放的资源都在这里依次push到这个数组里面
+    context.subscriptions.push(headerRemark);
 }
+
+// 对外暴露激活钩子函数
 exports.activate = activate;
 
-// this method is called when your extension is deactivated
+
+
+// 当插件失效的时候调用此方法 
 function deactivate() {
 }
 exports.deactivate = deactivate;
