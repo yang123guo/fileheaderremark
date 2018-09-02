@@ -4,6 +4,14 @@
     "description": "a extension which helps insert header info",
     "version": "0.0.1",
     "publisher": "faith",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/yang123guo/fileheaderremark"
+    },
+    "bugs": {
+        "url": "https://github.com/yang123guo/fileheaderremark/issues",
+        "email": "wochange@163.com"
+    },
     "engines": {
         "vscode": "^1.26.0"
     },
