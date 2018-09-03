@@ -50,7 +50,7 @@
         ],
         "keybindings": [
             {
-                "command": "extension.fileheader",
+                "command": "extension.fileheaderremark",
                 "key": "ctrl+alt+i",
                 "when": "editorTextFocus"
             }
