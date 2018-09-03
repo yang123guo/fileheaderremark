@@ -8,6 +8,8 @@ function activate(context) {
     // 默认项
     const config = {
         command: 'fileheaderremark',
+        line: 0,
+        character: 0
     }; 
     const params = {
         vscode,

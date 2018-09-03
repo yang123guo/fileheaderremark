@@ -7,6 +7,8 @@
  * @example: new HeaderRemark({...})
  */
 
+import RenderTpl from './RenderTpl';
+
 // 创建头备注类
 class HeaderRemark {
 
@@ -28,7 +30,8 @@ class HeaderRemark {
             workspace, // 当前工作区的 属性 和 方法 和 钩子函数
             commands,
             editor,
-            window
+            window,
+            Position
         } =  this.vscode;
 
         const {
@@ -38,12 +41,29 @@ class HeaderRemark {
 
         const {
             registerCommand, // 注册指令
+            registerTextEditorCommand, // 
         } = commands;
 
         this.getDefaultConfig(getConfiguration);
 
+        // 用户在命令行输入命令时，或者使用快捷键时执行，触发回调，返回为需释放资源实体
+        const disposable = registerTextEditorCommand('extension.fileheaderremark', (textEditor, edit, args) => {
+            // 获取当前活动窗口
+            // const activeTextEditor = window.activeTextEditor;
+            // const {
+            //     selection
+            // } = activeTextEditor;
+
+            // Position两个参数 line(行数), character(第几个字符) 
+            const location = new Position(this.config.line, this.config.character);
+            // 生成字符串
+            const value = new RenderTpl();
+            edit.insert(location, value);
+        })
+
+        // 用户保存当前文档时执行
         onDidSaveTextDocument(file => {
-            
+
         })
     }
 
