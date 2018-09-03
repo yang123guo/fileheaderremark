@@ -19,14 +19,23 @@
         "Other"
     ],
     "activationEvents": [
-        "onCommand:extension.sayHello"
+        "onCommand:extension.fileheaderremark"
     ],
     "main": "./extension",
     "contributes": {
-        "commands": [{
-            "command": "extension.sayHello",
-            "title": "Hello World"
-        }]
+        "commands": [
+            {
+                "command": "extension.fileheaderremark",
+                "title": "fileheaderremark"
+            }
+        ],
+        "keybindings": [
+            {
+                "command": "extension.fileheader",
+                "key": "ctrl+alt+i",
+                "when": "editorTextFocus"
+            }
+        ]
     },
     "scripts": {
         "postinstall": "node ./node_modules/vscode/bin/install",

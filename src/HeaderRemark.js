@@ -12,8 +12,12 @@ class HeaderRemark {
 
     // 传入配置参数
     constructor(props) {
-        const {vscode} = props;
-        this.vscode = vscode; // 接受传过来的vscode对象
+        const {
+            vscode,
+            ...config
+        } = props;
+        this.vscode = vscode; // 接受传入的vscode对象
+        this.config = config; // 接受传入的config
         this.init(); // 执行方法
     }
 
@@ -34,7 +38,19 @@ class HeaderRemark {
 
         const {
             registerCommand, // 注册指令
-        } = commands
+        } = commands;
+
+        this.getDefaultConfig(getConfiguration);
+
+        onDidSaveTextDocument(file => {
+            
+        })
+    }
+
+    // 获取默认配置
+    getDefaultConfig(getConfiguration) {
+        const key = this.config.command || 'fileheaderremark';
+        return getConfiguration[key];
     }
 
 
@@ -42,22 +58,22 @@ class HeaderRemark {
         var vscode = this.vscode;
         var StatusBarAlignment = vscode.StatusBarAlignment;
         var window = this.vscode.window;
- 
+
         //statusBar，是需要手动释放的
         this.statusBar = window.createStatusBarItem(StatusBarAlignment.Left);
- 
+
         //跟注册事件相配合的数组，事件的注册，也是需要释放的
         var disposable = [];
         //事件在注册的时候，会自动填充一个回调的dispose到数组
         window.onDidChangeTextEditorSelection(this.updateText, this, disposable);
- 
+
         //保存需要释放的资源
         this.disposable = vscode.Disposable.from(disposable);
- 
+
         this.updateText();
         this.statusBar.show();
     }
- 
+
     updateText() {       //现在快凌晨两点，偷个懒早点睡，临时改成字符数量了。
         var window = this.vscode.window;
         this.editor = window.activeTextEditor;
@@ -65,7 +81,7 @@ class HeaderRemark {
         var len = content.replace(/[\r\n\s]+/g, '').length;
         this.statusBar.text = `啦啦啦...已经敲了${len}个字符了`;
     }
- 
+
     dispose() {  //实现dispose方法
         this.disposable.dispose();
         this.statusBar.dispose();

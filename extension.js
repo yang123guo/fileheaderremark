@@ -5,8 +5,10 @@ const vscode = require('vscode');
 
 // 在插件被激活的时候，这个方法会被调用 
 function activate(context) {
-
-    const config = {}; // 默认项
+    // 默认项
+    const config = {
+        command: 'fileheaderremark',
+    }; 
     const params = {
         vscode,
         ...config
