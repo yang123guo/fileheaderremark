@@ -61,6 +61,8 @@ class HeaderRemark {
             edit.insert(location, value);
         })
 
+        return disposable;
+
         // 用户保存当前文档时执行
         onDidSaveTextDocument(file => {
 

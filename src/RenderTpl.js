@@ -9,7 +9,7 @@ class RenderTpl {
     }
 
     init() {
-
+        return 'hahha'
     }
 };
 

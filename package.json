@@ -23,6 +23,25 @@
     ],
     "main": "./extension",
     "contributes": {
+        "configuration": {              
+            "type": "object",
+            "title": "extension configuration",
+            "properties": { 
+                "fileheaderremark.customConfig": {
+                    "type": "object",
+                    "default": {
+                        "file": "fileheaderremark插件核心处理逻辑类",
+                        "author": "yangguoqiang",
+                        "date": "Do not edit",
+                        "editor": "OBKoro1",
+                        "lastTime": "Do not edit",
+                        "tips": "",
+                        "description": ""
+                    },
+                    "description": "By default, here customConfig file header "
+                }
+            }
+        },
         "commands": [
             {
                 "command": "extension.fileheaderremark",
