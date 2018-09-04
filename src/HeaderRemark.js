@@ -44,7 +44,8 @@ class HeaderRemark {
             registerTextEditorCommand, // 
         } = commands;
 
-        this.getDefaultConfig(getConfiguration);
+        // 获取用户或者默认配置项
+        const properties = this.getDefaultConfig(getConfiguration); 
 
         // 用户在命令行输入命令时，或者使用快捷键时执行，触发回调，返回为需释放资源实体
         const disposable = registerTextEditorCommand('extension.fileheaderremark', (textEditor, edit, args) => {
@@ -57,7 +58,7 @@ class HeaderRemark {
             // Position两个参数 line(行数), character(第几个字符) 
             const location = new Position(this.config.line, this.config.character);
             // 生成字符串
-            const value = new RenderTpl();
+            const value = new RenderTpl().render();
             edit.insert(location, value);
         })
 
