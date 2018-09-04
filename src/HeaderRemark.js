@@ -45,7 +45,28 @@ class HeaderRemark {
         } = commands;
 
         // 获取用户或者默认配置项
-        const properties = this.getDefaultConfig(getConfiguration); 
+        const {
+            customConfig
+        } = this.getDefaultConfig(getConfiguration); 
+
+        const str = Object.keys(customConfig).reduce((prev, next) => {
+            // {
+            //     "file": "fileheaderremark插件核心处理逻辑类",
+            //     "author": "yangguoqiang",
+            //     "date": "Do not edit",
+            //     "editor": "OBKoro1",
+            //     "lastTime": "Do not edit",
+            //     "tips": "",
+            //     "description": ""
+            // },
+            const val = customConfig[next];
+            const valTrans = ['date', 'lastTime'].includes(next) ? `* @${next}: {${next}}\r\n ` : `* @${next}: ${val}\r\n `;
+            prev += valTrans;
+            return ;
+        }, '');
+        const tpl = this.config.remark.replace(this.config.tag, str);
+
+        // this.config.remark =  '/**\r\n $$*/\r\n'
 
         // 用户在命令行输入命令时，或者使用快捷键时执行，触发回调，返回为需释放资源实体
         const disposable = registerTextEditorCommand('extension.fileheaderremark', (textEditor, edit, args) => {

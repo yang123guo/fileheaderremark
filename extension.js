@@ -9,7 +9,9 @@ function activate(context) {
     const config = {
         command: 'fileheaderremark',
         line: 0,
-        character: 0
+        character: 0,
+        remark: '/**\r\n $$*/\r\n',
+        tag: '$$'
     }; 
     const params = {
         vscode,
