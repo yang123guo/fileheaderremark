@@ -5,10 +5,9 @@ class RenderTpl {
             vscode,
             ...config
         } = props;
-        this.init(); // 执行方法
     }
 
-    init() {
+    render() {
         return 'hahha'
     }
 };
