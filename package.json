@@ -1,70 +1,71 @@
 {
-    "name": "fileheaderremark",
-    "displayName": "fileHeaderRemark",
-    "description": "a extension which helps insert header info",
-    "version": "0.0.1",
-    "publisher": "faith",
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/yang123guo/fileheaderremark"
+  "name": "fileheaderremark",
+  "displayName": "fileHeaderRemark",
+  "description": "a extension which helps insert header info",
+  "version": "0.0.1",
+  "publisher": "faith",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yang123guo/fileheaderremark"
+  },
+  "bugs": {
+    "url": "https://github.com/yang123guo/fileheaderremark/issues",
+    "email": "wochange@163.com"
+  },
+  "engines": {
+    "vscode": "^1.26.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:extension.fileheaderremark"
+  ],
+  "main": "./extension",
+  "contributes": {
+    "configuration": {
+      "type": "object",
+      "title": "extension configuration",
+      "properties": {
+        "fileheaderremark.customConfig": {
+          "type": "object",
+          "default": {
+            "file": "fileheaderremark插件核心处理逻辑类",
+            "author": "yangguoqiang",
+            "date": "Do not edit",
+            "editor": "OBKoro1",
+            "lastTime": "Do not edit",
+            "tips": "",
+            "description": ""
+          },
+          "description": "By default, here customConfig file header "
+        }
+      }
     },
-    "bugs": {
-        "url": "https://github.com/yang123guo/fileheaderremark/issues",
-        "email": "wochange@163.com"
-    },
-    "engines": {
-        "vscode": "^1.26.0"
-    },
-    "categories": [
-        "Other"
+    "commands": [
+      {
+        "command": "extension.fileheaderremark",
+        "title": "fileheaderremark"
+      }
     ],
-    "activationEvents": [
-        "onCommand:extension.fileheaderremark"
-    ],
-    "main": "./extension",
-    "contributes": {
-        "configuration": {              
-            "type": "object",
-            "title": "extension configuration",
-            "properties": { 
-                "fileheaderremark.customConfig": {
-                    "type": "object",
-                    "default": {
-                        "file": "fileheaderremark插件核心处理逻辑类",
-                        "author": "yangguoqiang",
-                        "date": "Do not edit",
-                        "editor": "OBKoro1",
-                        "lastTime": "Do not edit",
-                        "tips": "",
-                        "description": ""
-                    },
-                    "description": "By default, here customConfig file header "
-                }
-            }
-        },
-        "commands": [
-            {
-                "command": "extension.fileheaderremark",
-                "title": "fileheaderremark"
-            }
-        ],
-        "keybindings": [
-            {
-                "command": "extension.fileheaderremark",
-                "key": "ctrl+alt+i",
-                "when": "editorTextFocus"
-            }
-        ]
-    },
-    "scripts": {
-        "postinstall": "node ./node_modules/vscode/bin/install",
-        "test": "node ./node_modules/vscode/bin/test"
-    },
-    "devDependencies": {
-        "typescript": "^2.6.1",
-        "vscode": "^1.1.21",
-        "eslint": "^4.11.0",
-        "@types/node": "^8.10.25",
-        "@types/mocha": "^2.2.42"
-    }
+    "keybindings": [
+      {
+        "command": "extension.fileheaderremark",
+        "key": "ctrl+alt+i",
+        "when": "editorTextFocus"
+      }
+    ]
+  },
+  "scripts": {
+    "postinstall": "node ./node_modules/vscode/bin/install",
+    "test": "node ./node_modules/vscode/bin/test"
+  },
+  "devDependencies": {
+    "@types/mocha": "^2.2.42",
+    "@types/node": "^8.10.25",
+    "eslint": "^4.11.0",
+    "moment": "^2.22.2",
+    "typescript": "^2.6.1",
+    "vscode": "^1.1.21"
+  }
 }

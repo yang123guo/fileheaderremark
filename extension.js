@@ -11,7 +11,8 @@ function activate(context) {
         line: 0,
         character: 0,
         remark: '/**\r\n $$*/\r\n',
-        tag: '$$'
+        tag: '$$',
+        variable: ['date', 'lastdate']
     }; 
     const params = {
         vscode,

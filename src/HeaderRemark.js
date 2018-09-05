@@ -8,6 +8,7 @@
  */
 
 import RenderTpl from './RenderTpl';
+import moment from "moment";
 
 // 创建头备注类
 class HeaderRemark {
@@ -60,9 +61,9 @@ class HeaderRemark {
             //     "description": ""
             // },
             const val = customConfig[next];
-            const valTrans = ['date', 'lastTime'].includes(next) ? `* @${next}: {${next}}\r\n ` : `* @${next}: ${val}\r\n `;
+            const valTrans = this.config.variable.includes(next) ? `* @${next}: {${next}}\r\n ` : `* @${next}: ${val}\r\n `;
             prev += valTrans;
-            return ;
+            return prev;
         }, '');
         const tpl = this.config.remark.replace(this.config.tag, str);
 
