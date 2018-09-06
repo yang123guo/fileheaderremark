@@ -86,8 +86,12 @@ class HeaderRemark {
 
         return disposable;
 
-        // 用户保存当前文档时执行
-        onDidSaveTextDocument(file => {
+        /**
+         * 用户保存当前文档时执行
+         * 保存时候需要替换最后修改人和修改时间
+         * 为了节流，如果最近一次时间和最后时间相差过小，不更新
+         */ 
+        onDidSaveTextDocument(TextDocument => {
 
         })
     }
