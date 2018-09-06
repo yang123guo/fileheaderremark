@@ -92,7 +92,9 @@ class HeaderRemark {
          * 为了节流，如果最近一次时间和最后时间相差过小，不更新
          */ 
         onDidSaveTextDocument(TextDocument => {
-
+            // const thenable = TextDocument.save() // true为保存成功，false保存失败
+            // TextDocument.getText('params') // 获取文本
+            // 搜索 edit(callback: (editBuilder: TextEditorEdit) => void, options?: {undoStopAfter: boolean, undoStopBefore: boolean}): Thenable<boolean>
         })
     }
 
