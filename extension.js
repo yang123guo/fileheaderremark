@@ -14,6 +14,7 @@ function activate(context) {
         tag: '$$',
         variable: ['date', 'lastdate']
     }; 
+    // 参数获取
     const params = {
         vscode,
         ...config
